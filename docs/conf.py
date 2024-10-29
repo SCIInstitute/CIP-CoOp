@@ -90,9 +90,9 @@ html_css_files = ['css/main.css']
 
 html_title = project
 
-#html_logo = '_static/coop_logo.png'
-#
-#html_theme_options = {
-#    'logo_only': True
-#}
+html_logo = '_static/sci-logo-one-color.pdf'
+
+html_theme_options = {
+    'logo_only': True
+}
 
