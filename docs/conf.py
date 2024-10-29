@@ -10,10 +10,13 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
+import os
+import sys
+import shlex
 # sys.path.insert(0, os.path.abspath('.'))
 
+import recommonmark
+#from recommonmark.transform import AutoStructify
 
 # -- Project information -----------------------------------------------------
 
@@ -90,7 +93,7 @@ html_css_files = ['css/main.css']
 
 html_title = project
 
-html_logo = '_static/sci-logo-one-color.pdf'
+html_logo = '_static/sci24-white.png'
 
 html_theme_options = {
     'logo_only': True
