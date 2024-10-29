@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'cip-coop-pages'
+project = 'SCI CIP CoOp'
 copyright = '2024, The Scientific Computing and Imaging Institute at the University of Utah'
 author = 'CIP CoOp'
 
@@ -25,7 +25,7 @@ author = 'CIP CoOp'
 version = '0.0'
 release = '0.0.1'
 
-github_doc_root = 'https://github.com/SCIInstitute/UncertainSCI/tree/master/docs
+github_doc_root = 'https://github.com/SCIInstitute/CIP-CoOp/tree/main/docs'
 
 
 # -- General configuration ---------------------------------------------------
@@ -34,7 +34,18 @@ github_doc_root = 'https://github.com/SCIInstitute/UncertainSCI/tree/master/docs
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+        'sphinx.ext.autodoc',
+        'sphinx.ext.napoleon',
+        'recommonmark',
+        'sphinxcontrib.bibtex',
+        'sphinx_markdown_tables',
+        'nbsphinx'
 ]
+
+# Path for bibtex files
+bibtex_bibfiles = ['references.bib']
+bibtex_default_style = 'unsrt'
+bibtex_encoding = 'latin'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -44,15 +55,44 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
+
+suppress_warnings = [
+    'nbsphinx',
+]
+
+pygments_style = 'sphinx'
+
+# the master toctree doc
+master_doc = 'index'
 
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+
+#if not on_rtd:
+import sphinx_rtd_theme
+html_theme = 'sphinx_rtd_theme'
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+html_css_files = ['css/main.css']
+
+html_title = project
+
+#html_logo = '_static/coop_logo.png'
+#
+#html_theme_options = {
+#    'logo_only': True
+#}
+
